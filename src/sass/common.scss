@@ -1,0 +1,15 @@
+@mixin form-item {
+
+    .item {
+        height: 44px;
+        margin-bottom: 0;
+        line-height: 44px;
+        font-size: 14px;
+        label {
+            display: inline-block;
+            text-align: right;
+            width: 110px;
+            margin-right: 10px;
+        }
+    }
+}
