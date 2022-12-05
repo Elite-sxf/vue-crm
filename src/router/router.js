@@ -22,4 +22,10 @@ export default [
         component: ()=>import("@/views/login/index.vue"),
         meta: {title: "denglu"}
     },
+    {
+        path: "/register",
+        name: 'register',
+        component: ()=>import("@/views/login/register.vue"),
+        meta: {title: "zhuce"}
+    },
 ]

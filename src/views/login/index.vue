@@ -16,13 +16,17 @@
                             <div class="eyebtn">
                                 <Icon v-show="showEye" @click="showEye=!showEye" size="20" type="ios-eye" />
                                 <Icon v-show="!showEye" @click="(showEye=!showEye)" size="20" type="ios-eye-off" />
-                                <a href="">忘记密码？</a>
+                                <a href="javascript:;">忘记密码？</a>
                             </div>
                             
                         </div>
                     </div>
+                    <a class="regTxt" href="javascript:;" @click="goReg">注册账号</a>
+                    <Button class="confirm" type="primary">登陆</Button>
                 </TabPane>
-                <TabPane label="扫码登陆" name="tab2">标签二的内容</TabPane>
+                <TabPane label="扫码登陆" name="tab2">
+                    <canvas id="canvas" width="200" height="200"></canvas>
+                </TabPane>
             </Tabs>
         </section>
     </div>
@@ -32,12 +36,26 @@
 export default {
     mounted() {
         // console.log(this.$route);
-        
+        // {HTMLCanvasElement}
+        // var can = document.getElementById("canvas");
+        var can = document.getElementsByTagName("canvas")[0]
+        var c = can.getContext("2d");
+
+        c.strokeStyle = "red"
+        c.rect(50,20, 100, 100)
+        c.font = '24px STheiti, SimHei';
+        c.fillText("🦄",88,72)
+        c.stroke()
     },
     data() {
         return {
             loginTab: "tab1",
             showEye: false,
+        }
+    },
+    methods: {
+        goReg() {
+            this.$router.push("/register")
         }
     }
 }
@@ -122,11 +140,23 @@ export default {
                 position: absolute;
                 top: 0;
                 right: 20px;
+                cursor: pointer;
             }
         }
         .item:nth-child(1){
             border-bottom: 1px solid #ccc;
         }
         
+    }
+    .regTxt {
+        float: left;
+        margin-left: 20px;
+        margin-top: 26px;
+    }
+    .confirm {
+        width: 140px;
+        float: right;
+        margin-right: 30px;
+        margin-top: 20px;
     }
 </style>
